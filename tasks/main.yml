@@ -1,7 +1,7 @@
 ---
 - name: setup date freeze scheduler
   cron:
-    name: Lock server date on {{ locked_date }}
+    name: Lock server date
     job: "/bin/date -s '{{ locked_date }}'"
     user: root
     cron_file: lock_date
