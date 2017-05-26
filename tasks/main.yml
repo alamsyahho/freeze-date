@@ -1,7 +1,12 @@
 ---
+- name: remove old freeze scheduler
+  cron:
+    cron_file: lock_date
+    state: absent
+
 - name: setup date freeze scheduler
   cron:
-    name: Lock server date
+    name: Lock server date on {{ locked_date }}
     job: "/bin/date -s '{{ locked_date }}'"
     user: root
     cron_file: lock_date
